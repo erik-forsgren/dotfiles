@@ -1,5 +1,5 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
-echo 'figlet -f 3d hello still0r'
+
 # Source global definitions
 if [ -f /etc/bash.bashrc ]; then
         . /etc/bash.bashrc
@@ -56,7 +56,3 @@ MAVEN_OPTS="-Xms256m -Xmx1024m -XX:PermSize=256m -XX:MaxPermSize=256m"
 export MAVEN_OPTS
 export QTDIR=/usr/share/qt3
 export NO_AT_BRIDGE=1
-
-source "$HOME/.homesick/repos/homeshick/homeshick.sh"
-
-homeshick --quiet refresh

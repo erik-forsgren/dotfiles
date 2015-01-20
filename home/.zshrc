@@ -4,10 +4,11 @@ if [ -f ~/.commonrc ]; then
 fi
 
 # Set up the prompt
-
 autoload -Uz promptinit
 promptinit
 prompt adam1
+
+figlet -f 3d "hello still0r"
 
 setopt histignorealldups sharehistory
 
@@ -52,4 +53,11 @@ compctl -K listMavenCompletions mvn
 alias ls='ls --color=auto'
 alias l='ls --color=auto'
 
+#source homeshick
+source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+
+#set refresh
+homeshick --quiet refresh
+
+#autocomplete homeshick
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
