@@ -1,0 +1,4 @@
+#ignore state related stuff
+ac-comphist.dat
+history
+frame-restore-parameters
