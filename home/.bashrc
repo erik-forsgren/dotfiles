@@ -1,7 +1,5 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
-
+echo 'figlet -f 3d hello still0r'
 # Source global definitions
 if [ -f /etc/bash.bashrc ]; then
         . /etc/bash.bashrc
