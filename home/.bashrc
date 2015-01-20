@@ -60,3 +60,5 @@ export QTDIR=/usr/share/qt3
 export NO_AT_BRIDGE=1
 
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+
+homeshick --quiet refresh
