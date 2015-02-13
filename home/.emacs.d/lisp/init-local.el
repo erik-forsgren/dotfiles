@@ -83,8 +83,9 @@
 (require 'nasm-mode)
 (add-to-list 'auto-mode-alist '("\\.\\(asm\\|s\\)$" . nasm-mode))
 
-;; mu4e
-(require 'init-mu4e)
+;; Load xclip for X11 and console integratio
+(load-file "~/.emacs.d/lisp/xclip.el")
+(require 'xclip)
 
 (provide 'init-local)
 

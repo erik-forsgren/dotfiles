@@ -8,7 +8,8 @@ autoload -Uz promptinit
 promptinit
 prompt adam1
 
-figlet -f 3d "hello still0r"
+# Display loading screen
+echo "hello still0r"
 
 setopt histignorealldups sharehistory
 
@@ -53,11 +54,18 @@ compctl -K listMavenCompletions mvn
 alias ls='ls --color=auto'
 alias l='ls --color=auto'
 
-#source homeshick
+# Emacsclient aliases
+alias emacsc='emacsclient -c &'
+alias emacst='emacsclient -t'
+
+# Sexy LS
+alias ll='ls -la'
+
+# source homeshick
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 
-#set refresh
+# set refresh
 homeshick --quiet refresh
 
-#autocomplete homeshick
+# autocomplete homeshick
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
