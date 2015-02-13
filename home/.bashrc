@@ -40,18 +40,6 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-
-# mint-fortune
-/usr/bin/mint-fortune
-export SOAP_UI_HOME=/home/erik/soap-ui/soapui-4.6.0
-export JAVA_HOME=/usr/lib/jvm/jdk1.7.0_67
-export GRADLE_HOME=/home/erik/tools/gradle-2.2/
-export PATH=$PATH:$JAVA_HOME/bin:/usr/bin/nodejs:$SOAP_UI_HOME/bin:$GRADLE_HOME/bin
-CLASSPATH=$CLASSPATH:/usr/local/commons-logging-1.1.3:/home/erik/spring-framework-4.0.0.M1
-#Add lucene stuff to CLASSPATH
-export LUCENE_HOME=/home/erik/java/lucene/lucene-4.10.1/
-export CLASSPATH=$CLASSPATH:$LUCENE_HOME/core/lucene-core-4.10.1.jar:/$LUCENE_HOME/queryparser/lucene-queryparser-4.10.1.jar:$LUCENE_HOME/analysis/common/lucene-analyzers-common-4.10.1.jar:$LUCENE_HOME/demo/lucene-demo-4.10.1.jar
-export NO_AT_BRIDGE
 MAVEN_OPTS="-Xms256m -Xmx1024m -XX:PermSize=256m -XX:MaxPermSize=256m"
 export MAVEN_OPTS
 export QTDIR=/usr/share/qt3
