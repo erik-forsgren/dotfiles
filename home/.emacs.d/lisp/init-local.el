@@ -76,7 +76,6 @@
 
 
 (load-theme 'monokai t)
-(drag-stuff-global-mode)
 
 ;; 64bit assembler mode
 (load "~/.emacs.d/elpa/nasm-mode.el")
