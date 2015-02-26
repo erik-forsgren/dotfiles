@@ -39,6 +39,13 @@ servers = (
     use_ssl = "no";
     ssl_verify = "no";
     autoconnect = "yes";
+  },
+  {
+    address = "irc.freenode.net";
+    chatnet = "freenode";
+    port = "6667";
+    use_ssl = "no";
+    ssl_verify = "no";
   }
 );
 
@@ -106,14 +113,16 @@ chatnets = {
   };
   SILC = { type = "SILC"; };
   Ubuntu = { type = "IRC"; };
-  "Q@CServe.quakenet.org" = { type = "IRC"; autosendcmd = "/msg"; };
+  freenode = { type = "IRC"; };
 };
 
 channels = (
   { name = "#irssi"; chatnet = "ircnet"; autojoin = "No"; },
   { name = "silc"; chatnet = "silc"; autojoin = "No"; },
   { name = "#polen99"; chatnet = "EFNet"; autojoin = "yes"; },
-  { name = "#affes_kanal"; chatnet = "Quakenet"; autojoin = "yes"; }
+  { name = "#affes_kanal"; chatnet = "Quakenet"; autojoin = "yes"; },
+  { name = "#TSG"; chatnet = "Quakenet"; autojoin = "yes"; },
+  { name = "#archlinux"; chatnet = "freenode"; autojoin = "yes"; }
 );
 
 aliases = {
@@ -225,7 +234,6 @@ statusbar = {
         window = { };
         window_empty = { };
         lag = { priority = "-1"; };
-        act = { priority = "10"; };
         more = { priority = "-1"; alignment = "right"; };
         barend = { priority = "100"; alignment = "right"; };
       };
@@ -275,10 +283,74 @@ statusbar = {
         topicbarend = { priority = "100"; alignment = "right"; };
       };
     };
+    awl_0 = {
+      items = {
+        barstart = { priority = "100"; };
+        awl_0 = { };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+    };
+    awl_1 = {
+      items = {
+        barstart = { priority = "100"; };
+        awl_1 = { };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+    };
   };
 };
 settings = {
-  core = { real_name = "erik"; user_name = "erik"; nick = "still0r"; };
-  "fe-text" = { actlist_sort = "refnum"; };
-  "fe-common/core" = { theme = "industrial"; };
+  core = {
+    real_name = "Erik Forsgren";
+    user_name = "erik";
+    nick = "still0r";
+  };
+  "fe-text" = { actlist_sort = "refnum"; indent = "28"; };
+  "fe-common/core" = {
+    theme = "xchat";
+    autocreate_own_query = "no";
+    autocreate_query_level = "DCCMSGS";
+    use_msgs_window = "yes";
+    show_nickmode_empty = "yes";
+  };
+  "perl/core/scripts" = {
+    awl_shared_sbar = "OFF";
+    awl_block = "-15";
+    awl_viewer = "no";
+  };
 };
+windows = {
+  1 = { immortal = "yes"; name = "(status)"; level = "ALL"; };
+  2 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#affes_kanal";
+        tag = "QuakeNet";
+      }
+    );
+  };
+  3 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#TSG";
+        tag = "QuakeNet";
+      }
+    );
+  };
+  4 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#polen99";
+        tag = "EFNet";
+      }
+    );
+  };
+};
+mainwindows = { 3 = { first_line = "1"; lines = "22"; }; };
+hilights = ( { text = "still0r"; nick = "yes"; word = "yes"; } );
