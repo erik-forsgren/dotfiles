@@ -97,29 +97,43 @@ bindsym Ctrl+$mod+Right workspace next_on_output
 # workspace tags
 set $tag1 "1: term"
 set $tag2 "2: www"
-set $tag3 "3: code"
+set $tag3 "3: dev"
 set $tag4 "4: coms"
-
+set $tag5 "5: edit"
+set $tag6 "6: media"
 
 # switch to workspace
 bindsym $mod+1 workspace $tag1
 bindsym $mod+2 workspace $tag2
 bindsym $mod+3 workspace $tag3
 bindsym $mod+4 workspace $tag4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
+bindsym $mod+5 workspace $tag5
+bindsym $mod+6 workspace $tag6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
+
+# output workspaces
+workspace $tag2 output DP1
+workspace $tag3 output DP1
+workspace $tag4 output DP1
+workspace $tag5 output DP1
+workspace $tag6 output HDMI1
+
+# assign programs to workspaces
+assign [class="^Firefox$" instance="^Navigator$"] → $tag2
+assign [class="^Eclipse$" instance="^Eclipse$"] → $tag3
+assign [class="^Skype$" instance="^skype$"] → $tag4
+assign [class="^Emacs$" instance="emacs"] → $tag5
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $tag1
 bindsym $mod+Shift+2 move container to workspace $tag2
 bindsym $mod+Shift+3 move container to workspace $tag3
 bindsym $mod+Shift+4 move container to workspace $tag4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+5 move container to workspace $tag5
+bindsym $mod+Shift+6 move container to workspace $tag6
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
@@ -158,6 +172,28 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+
+# Add a small delay to prevent suspend races
+# https://bugs.launchpad.net/ubuntu/+source/unity-2d/+bug/830348
+set $Locker i3lock && sleep 1
+
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id $Locker, mode "default"
+    bindsym e exec --no-startup-id i3-msg exit, mode "default"
+    bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
+    bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id systemctl poweroff, mode "default"  
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+Delete mode "$mode_system"
+
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
@@ -169,12 +205,12 @@ bar {
 focus_follows_mouse no
 
 #new_window pixel 2
-exec_always --no-startup-id nm-applet
+exec --no-startup-id nm-applet
 exec --no-startup-id feh --bg-fill ~/.wallpapers/anonymous-wallpaper-1600x900.jpg
-exec_always --no-startup-id pulseaudio --start
-exec_always --no-startup-id parcellite
-exec_always --no-startup-id volumeicon
-exec_always --no-startup-id xfce4-power-manager
+exec --no-startup-id pulseaudio --start
+exec --no-startup-id parcellite
+exec --no-startup-id volumeicon
+exec --no-startup-id xfce4-power-manager
 
 #Use i3lock
 exec xss-lock -- i3lock

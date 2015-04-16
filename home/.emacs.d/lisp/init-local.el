@@ -1,5 +1,8 @@
 ;;;Local settings
 
+;; Pretty print xml
+(load "~/.emacs.d/custom/pretty_print_xml.el")
+
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 
 ;;Auto-complete

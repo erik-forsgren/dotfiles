@@ -44,3 +44,5 @@ MAVEN_OPTS="-Xms256m -Xmx1024m -XX:PermSize=256m -XX:MaxPermSize=256m"
 export MAVEN_OPTS
 export QTDIR=/usr/share/qt3
 export NO_AT_BRIDGE=1
+export EDITOR='nano'
+export VISUAL='nano'

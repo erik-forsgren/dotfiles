@@ -312,6 +312,8 @@ settings = {
     autocreate_query_level = "DCCMSGS";
     use_msgs_window = "yes";
     show_nickmode_empty = "yes";
+    activity_hide_level = "";
+    window_default_level = "MSGS PUBLICS NOTICES CTCPS ACTIONS JOINS PARTS QUITS KICKS MODES TOPICS NICKS CLIENTCRAP";
   };
   "perl/core/scripts" = {
     awl_shared_sbar = "OFF";
@@ -354,3 +356,8 @@ windows = {
 };
 mainwindows = { 3 = { first_line = "1"; lines = "22"; }; };
 hilights = ( { text = "still0r"; nick = "yes"; word = "yes"; } );
+ignores = (
+  { level = "JOINS PARTS QUITS"; channels = ( "#archlinux" ); },
+  { level = "JOINS PARTS QUITS"; channels = ( "#erlang" ); },
+  { level = "JOINS PARTS QUITS"; channels = ( "#emacs" ); }
+);

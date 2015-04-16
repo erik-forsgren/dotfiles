@@ -14,11 +14,13 @@
      (other . "stroustrup"))))
  '(column-number-mode t)
  '(compilation-message-face (quote default))
+ '(cua-mode t nil (cua-base))
  '(cua-normal-cursor-color "black")
  '(custom-enabled-themes (quote (monokai)))
  '(custom-safe-themes
    (quote
     ("dee53b16d8d18cf591115dcdada709d82fcb015684cd3f29d6ed78ae28c31f01" default)))
+ '(font-lock-maximum-size 256000)
  '(ido-enable-flex-matching t)
  '(ido-mode (quote both) nil (ido))
  '(ido-use-virtual-buffers t)
@@ -52,6 +54,7 @@
    (quote
     ((t :background unspecified :foreground "#cb4b16" :weight bold))))
  '(tidy-config-file nil)
+ '(tool-bar-mode nil)
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote
@@ -82,6 +85,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(default ((t (:family "DejaVu Sans Mono" :foundry "unknown" :slant normal :weight normal :height 98 :width normal))))
  '(rainbow-delimiters-depth-1-face ((t (:foreground "red"))))
  '(rainbow-delimiters-depth-2-face ((t (:foreground "dark orange"))))
  '(rainbow-delimiters-depth-3-face ((t (:foreground "forest green"))))
