@@ -1,0 +1,15 @@
+# .tigrc - tig configuration file
+
+color date                      cyan    default
+color diff_add                  green   default
+color diff_index                cyan    default
+color grep.file                 cyan    default
+color  file                     cyan    default
+color "index "			cyan	default
+color "diff-tree "		cyan	default
+color "Merge: "			cyan	default
+color "parent "			cyan	default
+color "tree "			cyan	default
+color help-group		cyan	default
+color diff-stat			cyan	default
+color graph-commit		cyan	default
