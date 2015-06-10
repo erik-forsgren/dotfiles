@@ -94,3 +94,6 @@ homeshick --quiet refresh
 
 # autocomplete homeshick
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
+
+# set EDITOR
+export EDITOR="nano"

@@ -193,6 +193,8 @@ mode "$mode_system" {
 
 bindsym $mod+Delete mode "$mode_system"
 
+#hotkey for custom lock script
+bindsym Ctrl+$mod+l exec lock
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -213,4 +215,4 @@ exec --no-startup-id volumeicon
 exec --no-startup-id xfce4-power-manager
 
 #Use i3lock
-exec xss-lock -- i3lock
+#exec xss-lock -- i3lock

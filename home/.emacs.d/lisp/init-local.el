@@ -1,5 +1,8 @@
 ;;;Local settings
 
+;; Load mu4e
+(require 'init-mu4e)
+
 ;; Pretty print xml
 (load "~/.emacs.d/custom/pretty_print_xml.el")
 

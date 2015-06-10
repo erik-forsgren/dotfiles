@@ -1,25 +1,24 @@
 (require 'mu4e)
 (setq mu4e-debug t)
 (setq mu4e-mu-binary "/usr/bin/mu")
-(setq mu4e-maildir "~/.maildir") ;; top-level Maildir
-(setq mu4e-sent-folder "/r2m/Skickade objekt") ;; where do i keep sent mail?
+(setq mu4e-maildir "~/maildir") ;; top-level Maildir
+(setq mu4e-sent-folder "/Utkorg") ;; where do i keep sent mail?
 
 (setq
    mu4e-get-mail-command "offlineimap"   ;; or fetchmail, or ...
    mu4e-update-interval 600)             ;; update every 5 minutes
 
-(setq mu4e-drafts-folder "/r2m/Utkast")
+(setq mu4e-drafts-folder "/Utkast")
 (setq mu4e-user-mail-address-list (list "erik.forsgren@r2m.se"))
 ;;  (setq user-mail-address-list "erik.forsgren@r2m.se")
 (setq message-kill-buffer-on-exit t)
-;; Use fancy chars
-(setq mu4e-use-fancy-chars t)
+
 ;; Shortcuts
 (setq mu4e-maildir-shortcuts
-      '(("/r2m/INBOX" . ?i)
-        ("/r2m/INBOX.old" . ?o)
-        ("/r2m/INBOX.INERA-jira" . ?j)
-        ("/r2m/INBOX.INERA-jenkins" . ?k)
+      '(("/INBOX" . ?i)
+        ("/INBOX.old" . ?o)
+        ("/INBOX.INERA-jira" . ?j)
+        ("/INBOX.INERA-jenkins" . ?k)
         ))
 
 ;; don't save message to Sent Messages, Gmail/IMAP takes care of this
@@ -31,6 +30,12 @@
  mu4e-view-show-images t
  mu4e-view-image-max-width 800)
 
+;; use 'fancy' non-ascii characters in various places in mu4e
+;;(setq mu4e-use-fancy-chars t)
+
+;; save attachment to my Downloads (this can also be a function)
+(setq mu4e-attachment-dir "~/Downloads")
+
 ;; sending mail
 (setq message-send-mail-function 'message-send-mail-with-sendmail
       sendmail-program "/usr/bin/msmtp"
@@ -39,8 +44,8 @@
 
 
 (setq mu4e-confirm-quit nil
-      mu4e-headers-date-format "%Y-%M-%d %H:%M" ; date format
-      mu4e-html2text-command "html2text -utf8 -width 72"
+      mu4e-headers-date-format "%Y-%M-%d %HH:%MM" ; date format
+      mu4e-html2text-command "w3m -I utf8 -O utf8 -T text/html"
       )
 
 ;; Borrowed from http://ionrock.org/emacs-email-and-mu.html
@@ -56,10 +61,7 @@
             ((from (save-restriction
                      (message-narrow-to-headers)
                      (message-fetch-field "from")))
-             (account
-              (cond
-               ((string-match "erik.forsgren@r2m.se" from) "r2m")
-               )))
+             (account "office365"))
           (setq message-sendmail-extra-arguments (list '"-a" account))))))
 
 (setq message-sendmail-envelope-from 'header)

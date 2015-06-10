@@ -46,6 +46,7 @@ servers = (
     port = "6667";
     use_ssl = "no";
     ssl_verify = "no";
+    autoconnect = "yes";
   }
 );
 
@@ -123,6 +124,7 @@ channels = (
   { name = "#affes_kanal"; chatnet = "Quakenet"; autojoin = "yes"; },
   { name = "#TSG"; chatnet = "Quakenet"; autojoin = "yes"; },
   { name = "#archlinux"; chatnet = "freenode"; autojoin = "yes"; }
+  { name = "#emacs"; chatnet = "freenode"; autojoin = "yes"; }
 );
 
 aliases = {
@@ -353,6 +355,17 @@ windows = {
       }
     );
   };
+  5 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#archlinux";
+        tag = "freenode";
+      }
+    );
+  };
+
 };
 mainwindows = { 3 = { first_line = "1"; lines = "22"; }; };
 hilights = ( { text = "still0r"; nick = "yes"; word = "yes"; } );
