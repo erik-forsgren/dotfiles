@@ -53,6 +53,10 @@ fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit
 compinit
 
+#gradle
+zstyle ":completion:*:*:gradle:*" gradle-inspect false
+
+#rest
 zstyle ':completion:*' auto-description 'specify: %d'
 zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle ':completion:*' format 'Completing %d'

@@ -1,0 +1,23 @@
+#!/bin/bash
+
+SESSIONNAME="inera_privportal"
+WORK_DIR="~/work/inera/code/privatlakarportal"
+
+tmux has-session -t $SESSIONNAME &> /dev/null
+
+if [ $? != 0 ] 
+ then
+     tmux new-session -d -s $SESSIONNAME -n priv
+     tmux new-window -t $SESSIONNAME:1 -n priv-web
+     tmux new-window -t $SESSIONNAME:2 -n priv-specifications
+
+     tmux send-keys -t $SESSIONNAME:0 "cd $WORK_DIR; clear" C-m
+     tmux send-keys -t $SESSIONNAME:1 "cd $WORK_DIR/web; clear" C-m
+     tmux send-keys -t $SESSIONNAME:3 "cd $WORK_DIR/specifications; clear" C-m
+
+     tmux select-window -t $SESSIONNAME
+
+fi
+
+tmux attach -d -t $SESSIONNAME
+
