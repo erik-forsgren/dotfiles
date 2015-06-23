@@ -101,3 +101,6 @@ fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 
 # set EDITOR
 export EDITOR="nano"
+
+#add ruby to PAHT
+export PATH="${PATH}:/home/erik/.gem/ruby/2.2.0/bin"

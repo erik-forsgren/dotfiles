@@ -123,7 +123,7 @@ channels = (
   { name = "#polen99"; chatnet = "EFNet"; autojoin = "yes"; },
   { name = "#affes_kanal"; chatnet = "Quakenet"; autojoin = "yes"; },
   { name = "#TSG"; chatnet = "Quakenet"; autojoin = "yes"; },
-  { name = "#archlinux"; chatnet = "freenode"; autojoin = "yes"; }
+  { name = "#archlinux"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#emacs"; chatnet = "freenode"; autojoin = "yes"; }
 );
 

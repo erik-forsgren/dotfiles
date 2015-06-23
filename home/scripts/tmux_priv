@@ -13,7 +13,7 @@ if [ $? != 0 ]
 
      tmux send-keys -t $SESSIONNAME:0 "cd $WORK_DIR; clear" C-m
      tmux send-keys -t $SESSIONNAME:1 "cd $WORK_DIR/web; clear" C-m
-     tmux send-keys -t $SESSIONNAME:3 "cd $WORK_DIR/specifications; clear" C-m
+     tmux send-keys -t $SESSIONNAME:2 "cd $WORK_DIR/specifications; clear" C-m
 
      tmux select-window -t $SESSIONNAME
 
