@@ -27,8 +27,8 @@ key[PageUp]=${terminfo[kpp]}
 key[PageDown]=${terminfo[knp]}
 
 #ctrl-forward / back in URXVT
-bindkey "\e\e[D" backward-word
-bindkey "\e\e[C" forward-word
+bindkey "^[Od" backward-word
+bindkey "^[Oc" forward-word
 
 # setup key accordingly
 [[ -n "${key[Home]}"    ]]  && bindkey  "${key[Home]}"    beginning-of-line
