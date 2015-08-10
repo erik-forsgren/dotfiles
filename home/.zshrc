@@ -26,6 +26,10 @@ key[Right]=${terminfo[kcuf1]}
 key[PageUp]=${terminfo[kpp]}
 key[PageDown]=${terminfo[knp]}
 
+#ctrl-forward / back in URXVT
+bindkey "\e\e[D" backward-word
+bindkey "\e\e[C" forward-word
+
 # setup key accordingly
 [[ -n "${key[Home]}"    ]]  && bindkey  "${key[Home]}"    beginning-of-line
 [[ -n "${key[End]}"     ]]  && bindkey  "${key[End]}"     end-of-line
@@ -36,9 +40,10 @@ key[PageDown]=${terminfo[knp]}
 [[ -n "${key[Left]}"    ]]  && bindkey  "${key[Left]}"    backward-char
 [[ -n "${key[Right]}"   ]]  && bindkey  "${key[Right]}"   forward-char
 
+
 setopt histignorealldups sharehistory
 
-# Use emacs keybindings even if our EDITOR is set to vi
+# Use emcs keybindings even if our EDITOR is set to vi
 bindkey -e
 
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
@@ -54,7 +59,7 @@ autoload -Uz compinit
 compinit
 
 #gradle
-zstyle ":completion:*:*:gradle:*" gradle-inspect false
+zstyle ":completion:*:*:gradle:*" gradle-inspect true
 
 #rest
 zstyle ':completion:*' auto-description 'specify: %d'
@@ -104,3 +109,14 @@ export EDITOR="nano"
 
 #add ruby to PAHT
 export PATH="${PATH}:/home/erik/.gem/ruby/2.2.0/bin"
+
+#auto push dirs
+setopt autopushd
+
+####################################################################################################
+# EXPERIMENTAL STUFF
+#
+
+
+# EXPERIMENTAL END
+####################################################################################################
