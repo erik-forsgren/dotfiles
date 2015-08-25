@@ -1,4 +1,9 @@
-;;;Local settings
+;; Load multiple-cursors
+(require 'multiple-cursors)
+
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
 ;; Load mu4e
 (require 'init-mu4e)
@@ -44,7 +49,7 @@
 (setq global-font-lock-mode 1)
 
 (require 'rainbow-delimiters)
- 
+
 ;; Auto indent
 (global-set-key (kbd "RET") 'newline-and-indent)
 
