@@ -100,7 +100,7 @@ set $tag2 "2: www"
 set $tag3 "3: dev"
 set $tag4 "4: coms"
 set $tag5 "5: edit"
-set $tag6 "6: media"
+set $tag6 "6: music"
 
 # switch to workspace
 bindsym $mod+1 workspace $tag1
@@ -119,13 +119,14 @@ workspace $tag2 output DP1
 workspace $tag3 output DP1
 workspace $tag4 output DP1
 workspace $tag5 output DP1
-workspace $tag6 output HDMI1
+workspace $tag6 output DP1
 
 # assign programs to workspaces
 assign [class="^Firefox$" instance="^Navigator$"] → $tag2
 assign [class="^Eclipse$" instance="^Eclipse$"] → $tag3
 assign [class="^Skype$" instance="^skype$"] → $tag4
 assign [class="^Emacs$" instance="emacs"] → $tag5
+assign [instance="ncmpcpp"] → $tag6
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $tag1
@@ -206,13 +207,16 @@ bar {
 
 focus_follows_mouse no
 
-#new_window pixel 2
+#Exectute on startup
 exec --no-startup-id nm-applet
 exec --no-startup-id feh --bg-fill ~/.wallpapers/anonymous-wallpaper-1600x900.jpg
 exec --no-startup-id pulseaudio --start
 exec --no-startup-id parcellite
 exec --no-startup-id volumeicon
 exec --no-startup-id xfce4-power-manager
+exec --no-startup-id exec mpd
+exec --no-startup-id urxvt -name ncmpcpp -e ncmpcpp
+
 
 #Use i3lock
 #exec xss-lock -- i3lock
