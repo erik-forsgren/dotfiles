@@ -45,8 +45,9 @@
 
 (setq mu4e-confirm-quit nil
       mu4e-headers-date-format "%Y-%M-%d %HH:%MM" ; date format
-      mu4e-html2text-command "w3m -I utf8 -O utf8 -T text/html"
       )
+
+(setq mu4e-html2text-command "w3m -I utf8 -O utf8 -T text/html")
 
 ;; Borrowed from http://ionrock.org/emacs-email-and-mu.html
 ;; Choose account label to feed msmtp -a option based on From header
