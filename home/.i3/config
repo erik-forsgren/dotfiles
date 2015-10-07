@@ -205,7 +205,7 @@ bindsym Ctrl+$mod+l exec lock
 bar {
 	position top
         #i3status
-	status_command i3status -c ~/.i3/i3status.conf
+	status_command py3status -c ~/.i3/i3status.conf
 }
 
 focus_follows_mouse no
@@ -221,7 +221,6 @@ exec --no-startup-id emacs
 exec --no-startup-id skype
 exec --no-startup-id eclipse
 exec --no-startup-id firefox
-exec --no-startup-id mpd
 exec --no-startup-id urxvt -name ncmpcpp -e ncmpcpp
 
 
