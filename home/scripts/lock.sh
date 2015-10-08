@@ -24,7 +24,7 @@ then
 	PX=$(($SROX + $SRX/2 - $RX/2))
 	PY=$(($SROY + $SRY/2 - $RY/2))
 
-	convert /tmp/screen.png $HOME/.xlock/screen-lock2.png -geometry +$PX+$PY -composite -matte  /tmp/screen.png
+	convert /tmp/screen.png $HOME/.xlock/screen-lock.png -geometry +$PX+$PY -composite -matte  /tmp/screen.png
 	echo "done"
     done
 fi
