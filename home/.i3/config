@@ -200,6 +200,10 @@ bindsym $mod+Delete mode "$mode_system"
 #hotkey for custom lock script
 bindsym Ctrl+$mod+l exec lock
 
+# MPC / NCMPCPP hotkeys
+bindsym $mod+p exec mpc next
+bindsym $mod+o exec mpc prev
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
