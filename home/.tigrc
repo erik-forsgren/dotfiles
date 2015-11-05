@@ -13,3 +13,5 @@ color "tree "			cyan	default
 color help-group		cyan	default
 color diff-stat			cyan	default
 color graph-commit		cyan	default
+
+bind generic c !@sh -c "echo %(commit) | parcelite

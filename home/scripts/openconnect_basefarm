@@ -1,1 +1,2 @@
-sudo openconnect https://ssl-vpn.sth.basefarm.net/ssl
+#!/bin/bash
+cat /home/erik/work/inera/dokument/basefarm/misc | sudo openconnect -u eorsgren --passwd-on-stdin https://ssl-vpn.sth.basefarm.net/ssl
