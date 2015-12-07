@@ -216,7 +216,9 @@ focus_follows_mouse no
 
 #Exectute on startup
 exec --no-startup-id nm-applet
-exec --no-startup-id feh --bg-fill ~/.wallpapers/anonymous-wallpaper-1600x900.jpg
+#Old wallpaper
+#anonymous-wallpaper-1600x900.jpg
+exec --no-startup-id feh --bg-scale ~/.wallpapers/ninjagaiden.png
 exec --no-startup-id pulseaudio --start
 exec --no-startup-id parcellite
 exec --no-startup-id volumeicon
@@ -225,6 +227,7 @@ exec --no-startup-id emacs
 exec --no-startup-id skype
 exec --no-startup-id eclipse
 exec --no-startup-id firefox
+exec systemctl --user restart mopidy.service
 exec --no-startup-id urxvt -name ncmpcpp -e ncmpcpp
 
 
