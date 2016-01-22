@@ -225,7 +225,7 @@ exec --no-startup-id volumeicon
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id emacs
 exec --no-startup-id skype
-exec --no-startup-id eclipse
+exec --no-startup-id eclipse-mars
 exec --no-startup-id firefox
 exec systemctl --user restart mopidy.service
 exec --no-startup-id urxvt -name ncmpcpp -e ncmpcpp
