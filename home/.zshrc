@@ -107,8 +107,11 @@ fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 # set EDITOR
 export EDITOR="nano"
 
-#add ruby to PAHT
+#add ruby to PATH
 export PATH="${PATH}:/home/erik/.gem/ruby/2.2.0/bin"
+
+#source nvm
+source /usr/share/nvm/init-nvm.sh
 
 #auto push dirs
 setopt autopushd
