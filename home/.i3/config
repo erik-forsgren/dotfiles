@@ -223,12 +223,15 @@ bar {
 }
 
 #window border styles:
+new_window pixel 1px
+
 # class			border  backgr. text    indicator
 client.focused 		#3973ac #3973ac #fdf6e3 #6c71c4
 client.focused_inactive #204060 #204060 #93a1a1 #586e75
 client.unfocused 	#204060 #204060 #93a1a1 #586e75
 client.urgent 		#d33682 #d33682 #fdf6e3 #dc322f
 
+#mouse settings
 focus_follows_mouse no
 
 #Exectute on startup
