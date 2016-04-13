@@ -210,7 +210,24 @@ bar {
 	position top
         #i3status
 	status_command py3status -c ~/.i3/i3status.conf
+	colors {
+   	  	  separator #f4f4f4
+		  background #000000
+		  statusline #f4f4f4
+		  # class    	     border  backgr. text
+		  focused_workspace  #3973ac #3973ac #fdf6e3
+		  active_workspace   #3973ac #3973ac #fdf6e3
+		  inactive_workspace #002b36 #204060 #93a1a1
+		  urgent_workspace   #d33682 #d33682 #fdf6e3
+	}
 }
+
+#window border styles:
+# class			border  backgr. text    indicator
+client.focused 		#3973ac #3973ac #fdf6e3 #6c71c4
+client.focused_inactive #204060 #204060 #93a1a1 #586e75
+client.unfocused 	#204060 #204060 #93a1a1 #586e75
+client.urgent 		#d33682 #d33682 #fdf6e3 #dc322f
 
 focus_follows_mouse no
 
