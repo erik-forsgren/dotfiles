@@ -211,7 +211,6 @@ bindsym $mod+o exec mpc prev
 # finds out, if available)
 bar {
 	position top
-        #i3status
 	status_command py3status -c ~/.i3/i3status.conf
 	colors {
    	  	  separator #204060
@@ -227,7 +226,9 @@ bar {
 
 #window border styles:
 new_window pixel 1px
+new_float normal 3px
 
+#Workspace styling
 # class			border  backgr. text    indicator
 client.focused 		#3973ac #3973ac #fdf6e3 #6c71c4
 client.focused_inactive #13263a #13263a #93a1a1 #586e75
