@@ -104,6 +104,7 @@ set $tag3 "3: dev"
 set $tag4 "4: coms"
 set $tag5 "5: edit"
 set $tag6 "6: music"
+set $tag7 "7: ssh"
 
 # switch to workspace
 bindsym $mod+1 workspace $tag1
@@ -112,7 +113,7 @@ bindsym $mod+3 workspace $tag3
 bindsym $mod+4 workspace $tag4
 bindsym $mod+5 workspace $tag5
 bindsym $mod+6 workspace $tag6
-bindsym $mod+7 workspace 7
+bindsym $mod+7 workspace $tag7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
@@ -123,6 +124,7 @@ workspace $tag3 output DP1
 workspace $tag4 output DP1
 workspace $tag5 output DP1
 workspace $tag6 output DP1
+workspace $tag7 output DP1
 
 # assign programs to workspaces
 assign [class="^Firefox$" instance="^Navigator$"] → $tag2
@@ -130,6 +132,7 @@ assign [class="^Eclipse$" instance="^Eclipse$"] → $tag3
 assign [class="^Skype$" instance="^skype$"] → $tag4
 assign [class="^Emacs$" instance="emacs"] → $tag5
 assign [instance="ncmpcpp"] → $tag6
+assign [class="^URxvt$" instance="ssh"] → $tag7
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $tag1
@@ -138,7 +141,7 @@ bindsym $mod+Shift+3 move container to workspace $tag3
 bindsym $mod+Shift+4 move container to workspace $tag4
 bindsym $mod+Shift+5 move container to workspace $tag5
 bindsym $mod+Shift+6 move container to workspace $tag6
-bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+7 move container to workspace $tag7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
@@ -211,13 +214,13 @@ bar {
         #i3status
 	status_command py3status -c ~/.i3/i3status.conf
 	colors {
-   	  	  separator #f4f4f4
+   	  	  separator #204060
 		  background #000000
-		  statusline #f4f4f4
+		  statusline #c6d8ec
 		  # class    	     border  backgr. text
 		  focused_workspace  #3973ac #3973ac #fdf6e3
 		  active_workspace   #3973ac #3973ac #fdf6e3
-		  inactive_workspace #002b36 #204060 #93a1a1
+		  inactive_workspace #13263a #13263a #93a1a1
 		  urgent_workspace   #d33682 #d33682 #fdf6e3
 	}
 }
@@ -227,8 +230,8 @@ new_window pixel 1px
 
 # class			border  backgr. text    indicator
 client.focused 		#3973ac #3973ac #fdf6e3 #6c71c4
-client.focused_inactive #204060 #204060 #93a1a1 #586e75
-client.unfocused 	#204060 #204060 #93a1a1 #586e75
+client.focused_inactive #13263a #13263a #93a1a1 #586e75
+client.unfocused 	#13263a #13263a #93a1a1 #586e75
 client.urgent 		#d33682 #d33682 #fdf6e3 #dc322f
 
 #mouse settings
@@ -236,8 +239,6 @@ focus_follows_mouse no
 
 #Exectute on startup
 exec --no-startup-id nm-applet
-#Old wallpaper
-#anonymous-wallpaper-1600x900.jpg
 exec --no-startup-id feh --bg-scale ~/.wallpapers/ninjagaiden.png
 exec --no-startup-id pulseaudio --start
 exec --no-startup-id parcellite
@@ -249,7 +250,3 @@ exec --no-startup-id eclipse-mars
 exec --no-startup-id firefox
 exec systemctl --user restart mopidy.service
 exec --no-startup-id urxvt -name ncmpcpp -e ncmpcpp
-
-
-#Use i3lock
-#exec xss-lock -- i3lock
