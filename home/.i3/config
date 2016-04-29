@@ -133,6 +133,7 @@ assign [class="^Skype$" instance="^skype$"] → $tag4
 assign [class="^Emacs$" instance="emacs"] → $tag5
 assign [instance="ncmpcpp"] → $tag6
 assign [class="^URxvt$" instance="ssh"] → $tag7
+assign [class="^URxvt$" instance="^irssi$"] → $tag4
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $tag1
@@ -242,6 +243,7 @@ focus_follows_mouse no
 exec --no-startup-id nm-applet
 exec --no-startup-id feh --bg-scale ~/.wallpapers/ninjagaiden.png
 exec --no-startup-id pulseaudio --start
+exec systemctl --user restart mopidy.serviceexec
 exec --no-startup-id parcellite
 exec --no-startup-id volumeicon
 exec --no-startup-id xfce4-power-manager
@@ -249,5 +251,6 @@ exec --no-startup-id emacs
 exec --no-startup-id skype
 exec --no-startup-id eclipse-mars
 exec --no-startup-id firefox
-exec systemctl --user restart mopidy.service
+exec --no-startup-id urxvt -name irssi -e irssi
 exec --no-startup-id urxvt -name ncmpcpp -e ncmpcpp
+
