@@ -35,7 +35,7 @@ servers = (
   {
     address = "Quakenet";
     port = "0";
-    password = "6667";
+    password =TODO
     use_ssl = "no";
     ssl_verify = "no";
     autoconnect = "yes";
@@ -45,6 +45,15 @@ servers = (
     chatnet = "freenode";
     port = "6667";
     use_ssl = "no";
+    ssl_verify = "no";
+    autoconnect = "yes";
+  },
+  {
+    address = "r2m.irc.slack.com";
+    chatnet = "slack";
+    port = "6667";
+    password =TODO
+    use_ssl = "yes";
     ssl_verify = "no";
     autoconnect = "yes";
   }
@@ -115,6 +124,7 @@ chatnets = {
   SILC = { type = "SILC"; };
   Ubuntu = { type = "IRC"; };
   freenode = { type = "IRC"; };
+  slack = { type = "IRC"; nick = "stillor"; };
 };
 
 channels = (
@@ -124,7 +134,9 @@ channels = (
   { name = "#affes_kanal"; chatnet = "Quakenet"; autojoin = "yes"; },
   { name = "#TSG"; chatnet = "Quakenet"; autojoin = "yes"; },
   { name = "#archlinux"; chatnet = "freenode"; autojoin = "yes"; },
-  { name = "#emacs"; chatnet = "freenode"; autojoin = "yes"; }
+  { name = "#emacs"; chatnet = "freenode"; autojoin = "yes"; },
+  { name = "#allmant"; chatnet = "slack"; autojoin = "yes"; }
+  { name = "#random"; chatnet = "slack"; autojoin = "yes"; }
 );
 
 aliases = {
@@ -292,13 +304,6 @@ statusbar = {
         barend = { priority = "100"; alignment = "right"; };
       };
     };
-    awl_1 = {
-      items = {
-        barstart = { priority = "100"; };
-        awl_1 = { };
-        barend = { priority = "100"; alignment = "right"; };
-      };
-    };
   };
 };
 settings = {
@@ -372,5 +377,6 @@ hilights = ( { text = "still0r"; nick = "yes"; word = "yes"; } );
 ignores = (
   { level = "JOINS PARTS QUITS"; channels = ( "#archlinux" ); },
   { level = "JOINS PARTS QUITS"; channels = ( "#erlang" ); },
-  { level = "JOINS PARTS QUITS"; channels = ( "#emacs" ); }
+  { level = "JOINS PARTS QUITS"; channels = ( "#emacs" ); },
+  { level = "MODES"; servertag = "slack"; }
 );
