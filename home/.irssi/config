@@ -135,7 +135,7 @@ channels = (
   { name = "#TSG"; chatnet = "Quakenet"; autojoin = "yes"; },
   { name = "#archlinux"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#emacs"; chatnet = "freenode"; autojoin = "yes"; },
-  { name = "#allmant"; chatnet = "slack"; autojoin = "yes"; }
+  { name = "#allmant"; chatnet = "slack"; autojoin = "yes"; },
   { name = "#random"; chatnet = "slack"; autojoin = "yes"; }
 );
 
@@ -301,6 +301,13 @@ statusbar = {
       items = {
         barstart = { priority = "100"; };
         awl_0 = { };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+    };
+    awl_1 = {
+      items = {
+        barstart = { priority = "100"; };
+        awl_1 = { };
         barend = { priority = "100"; alignment = "right"; };
       };
     };

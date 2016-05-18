@@ -1,1 +1,2 @@
 mopidy.conf filter=remove-pass
+.irssi/config filter=remove-pass

@@ -7,18 +7,20 @@ tmux has-session -t $SESSIONNAME &> /dev/null
 
 if [ $? != 0 ] 
  then
-     tmux new-session -d -s $SESSIONNAME -n webcert
+     tmux new-session -d -s $SESSIONNAME -n inera/code
 
-     tmux new-window -t $SESSIONNAME:1 -n intygstjänst
-     tmux new-window -t $SESSIONNAME:2 -n intygstyper
-     tmux new-window -t $SESSIONNAME:3 -n wc-specification
-     tmux new-window -t $SESSIONNAME:4 -n it-specifications
+     # Setup project specific windows and cd into the correct dirs
+     tmux new-window -t $SESSIONNAME:1 -n webcert 
+     tmux new-window -t $SESSIONNAME:2 -n intygstjanst
+     tmux new-window -t $SESSIONNAME:3 -n intygstyper
+     tmux new-window -t $SESSIONNAME:4 -n minaintyg
+     tmux new-window -t $SESSIONNAME:5 -n tools/build
 
-     tmux send-keys -t $SESSIONNAME:0 "cd $WORK_DIR/webcert; clear" C-m
-     tmux send-keys -t $SESSIONNAME:1 "cd $WORK_DIR/intygstjanst; clear" C-m
-     tmux send-keys -t $SESSIONNAME:2 "cd $WORK_DIR; clear" C-m
-     tmux send-keys -t $SESSIONNAME:3 "cd $WORK_DIR/webcert/specifications; clear" C-m
-     tmux send-keys -t $SESSIONNAME:4 "cd $WORK_DIR/intygstjanst/specifications; clear" C-m
+     tmux send-keys -t $SESSIONNAME:1 "cd $WORK_DIR/webcert; clear" C-m
+     tmux send-keys -t $SESSIONNAME:2 "cd $WORK_DIR/intygstjanst; clear" C-m
+     tmux send-keys -t $SESSIONNAME:3 "cd $WORK_DIR/intygstyper; clear" C-m
+     tmux send-keys -t $SESSIONNAME:4 "cd $WORK_DIR/minaintyg; clear" C-m
+     tmux send-keys -t $SESSIONNAME:5 "cd $WORK_DIR/tools/buildTools; clear" C-m
 
      tmux select-window -t $SESSIONNAME
 

@@ -1,4 +1,11 @@
-;; Load multiple-cursors
+;;; package --- Initiliaze local stuff
+;;; Commentary:
+;;; All local stuff goes here.
+
+;;; Load emacs-eclim on startup
+(require 'init-eclim)
+
+;;; Load multiple-cursors
 (require 'multiple-cursors)
 
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
