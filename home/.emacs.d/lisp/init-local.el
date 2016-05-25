@@ -1,6 +1,8 @@
 ;;; package --- Initiliaze local stuff
-;;; Commentary:
-;;; All local stuff goes here.
+
+;;; Load theme first!
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+(load-theme 'monokai t)
 
 ;;; Load emacs-eclim on startup
 (require 'init-eclim)
@@ -17,8 +19,6 @@
 
 ;; Pretty print xml
 (load "~/.emacs.d/custom/pretty_print_xml.el")
-
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 
 ;;Auto-complete
 (add-to-list 'load-path "~/.emacs.d/lisp/auto-complete")
@@ -55,8 +55,6 @@
 (add-hook 'text-mode-hook 'visual-line-mode)
 (setq global-font-lock-mode 1)
 
-(require 'rainbow-delimiters)
-
 ;; Auto indent
 (global-set-key (kbd "RET") 'newline-and-indent)
 
@@ -68,16 +66,14 @@
           '(lambda ()
              (setq mode-line-buffer-identification 'buffer-file-truename)))
 
-;; For easy window scrolling up and down.
-(global-set-key "\M-n" 'scroll-up-line)
-(global-set-key "\M-p" 'scroll-down-line)
-
-
-(add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
-(add-hook 'clojure-mode-hook '(lambda ()))
-
 ;; For easier regex search/replace.
 (defalias 'qrr 'query-replace-regexp)
+
+
+;;; Rainbow delimiters
+(require 'rainbow-delimiters)
+(add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'clojure-mode-hook '(lambda ()))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -92,15 +88,17 @@
  '(rainbow-delimiters-depth-6-face ((t (:foreground "medium blue"))))
  '(rainbow-delimiters-depth-7-face ((t (:foreground "magenta")))))
 
-
-(load-theme 'monokai t)
-
-;; 64bit assembler mode
+;;; 64bit assembler mode
 (load "~/.emacs.d/elpa/nasm-mode.el")
 (require 'nasm-mode)
 (add-to-list 'auto-mode-alist '("\\.\\(asm\\|s\\)$" . nasm-mode))
 
+;;; ace-jump-mode
+(require 'init-ace-jump)
 
+;;; iy-go-to-char
+(require 'iy-go-to-char)
+(define-key global-map (kbd "M-ö") 'iy-go-to-char)
 
 (provide 'init-local)
 ;;; init-local.el ends here
