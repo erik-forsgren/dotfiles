@@ -35,7 +35,6 @@ servers = (
   {
     address = "Quakenet";
     port = "0";
-    password =TODO
     use_ssl = "no";
     ssl_verify = "no";
     autoconnect = "yes";

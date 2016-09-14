@@ -105,7 +105,7 @@ homeshick --quiet refresh
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 
 # set EDITOR
-export EDITOR="nano"
+export EDITOR="emacsclient -t"
 
 #add ruby to PATH
 export PATH="${PATH}:/home/erik/.gem/ruby/2.2.0/bin"
