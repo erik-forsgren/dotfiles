@@ -16,7 +16,7 @@ set $mod Mod4
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:Terminus 10px
-font pango: Monospace 8
+font pango: Monospace 12px
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
@@ -34,7 +34,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+bindsym $mod+d exec dmenu_run -fn "DejaVu Sans Mono-12px"
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -98,8 +98,8 @@ bindsym Ctrl+$mod+Right workspace next_on_output
 workspace_auto_back_and_forth yes
 
 # workspace tags
-set $tag1 "1: term"
-set $tag2 "2: www"
+set $tag1 "1: web"
+set $tag2 "2: term"
 set $tag3 "3: dev"
 set $tag4 "4: edit"
 set $tag5 "5: coms"
@@ -119,21 +119,24 @@ bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
 # output workspaces
-workspace $tag2 output DP1
-workspace $tag3 output DP1
-workspace $tag4 output DP1
-workspace $tag5 output DP1
-workspace $tag6 output DP1
-workspace $tag7 output DP1
+workspace $tag1 output DP-1-2
+workspace $tag2 output DP-1-2
+workspace $tag3 output DP-1-2
+workspace $tag4 output DP-1-2
+workspace $tag5 output DP-1-2
+workspace $tag6 output DP-1-2
+workspace $tag7 output DP-1-2
 
 # assign programs to workspaces
-assign [class="^Firefox$" instance="^Navigator$"] → $tag2
-assign [class="^Eclipse$" instance="^Eclipse$"] → $tag3
+assign [class="^Firefox$" instance="^Navigator$"] → $tag1
+assign [class="^jetbrains-idea$" instance="^jetbrains-idea$"] → $tag3
 assign [class="^Skype$" instance="^skype$"] → $tag5
 assign [class="^Emacs$" instance="emacs"] → $tag4
 assign [instance="ncmpcpp"] → $tag6
 assign [class="^URxvt$" instance="ssh"] → $tag7
 assign [class="^URxvt$" instance="^irssi$"] → $tag5
+assign [instance="skypeforlinux"] → $tag5
+assign [instance="teams-for-linux"] → $tag5
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $tag1
@@ -214,7 +217,7 @@ bar {
 	position top
 	status_command py3status -c ~/.i3/i3status.conf
 	colors {
-   	  	  separator #204060
+		  separator #93a1a1
 		  background #000000
 		  statusline #c6d8ec
 		  # class    	     border  backgr. text
@@ -241,16 +244,13 @@ focus_follows_mouse no
 
 #Exectute on startup
 exec --no-startup-id nm-applet
-exec --no-startup-id feh --bg-scale ~/.wallpapers/ninjagaiden.png
-exec --no-startup-id pulseaudio --start
-exec systemctl --user restart mopidy.serviceexec
+exec --no-startup-id feh --bg-scale ~/.wallpapers/bg.png
+exec systemctl --user restart mopidy.service
 exec --no-startup-id parcellite
 exec --no-startup-id volumeicon
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id emacs
-exec --no-startup-id skype
-exec --no-startup-id eclipse-mars
 exec --no-startup-id firefox
-exec --no-startup-id urxvt -name irssi -e irssi
+exec --no-startup-id teams-for-linux
 exec --no-startup-id urxvt -name ncmpcpp -e ncmpcpp
 

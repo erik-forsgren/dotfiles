@@ -1,36 +1,8 @@
 servers = (
-  { address = "irc.ubuntu.com"; chatnet = "Ubuntu"; port = "8001"; },
-  { address = "eu.irc6.net"; chatnet = "IRCnet"; port = "6667"; },
-  { address = "open.ircnet.net"; chatnet = "IRCnet"; port = "6667"; },
-  { address = "irc.efnet.org"; chatnet = "EFNet"; port = "6667"; },
-  { 
-    address = "irc.undernet.org";
-    chatnet = "Undernet";
-    port = "6667";
-  },
-  { address = "irc.dal.net"; chatnet = "DALnet"; port = "6667"; },
   { 
     address = "irc.quakenet.org";
     chatnet = "QuakeNet";
     port = "6667";
-  },
-  { address = "irc.oftc.net"; chatnet = "OFTC"; port = "6667"; },
-  {
-    address = "irc.gamesurge.net";
-    chatnet = "GameSurge";
-    port = "6667";
-  },
-  { address = "irc.webchat.org"; chatnet = "WebChat"; port = "6667"; },
-  { address = "irc.rizon.net"; chatnet = "Rizon"; port = "6667"; },
-  { address = "irc.link-net.org"; chatnet = "LinkNet"; port = "6667"; },
-  { address = "silc.silcnet.org"; chatnet = "SILC"; port = "706"; },
-  {
-    address = "irc.du.se";
-    chatnet = "EFNet";
-    port = "6667";
-    use_ssl = "no";
-    ssl_verify = "no";
-    autoconnect = "yes";
   },
   {
     address = "Quakenet";
@@ -59,62 +31,13 @@ servers = (
 );
 
 chatnets = {
-  IRCnet = {
-    type = "IRC";
-    max_kicks = "4";
-    max_msgs = "5";
-    max_whois = "4";
-    max_query_chans = "5";
-  };
   EFNet = { 
     type = "IRC";
     max_kicks = "4";
     max_msgs = "3";
     max_whois = "1";
   };
-  Undernet = {
-    type = "IRC";
-    max_kicks = "1";
-    max_msgs = "3";
-    max_whois = "30";
-  };
-  DALnet = {
-    type = "IRC";
-    max_kicks = "4";
-    max_msgs = "3";
-    max_whois = "30";
-  };
   QuakeNet = {
-    type = "IRC";
-    max_kicks = "1";
-    max_msgs = "3";
-    max_whois = "30";
-  };
-  OFTC = { 
-    type = "IRC";
-    max_kicks = "1";
-    max_msgs = "3";
-    max_whois = "30";
-  };
-  GameSurge = {
-    type = "IRC";
-    max_kicks = "1";
-    max_msgs = "3";
-    max_whois = "30";
-  };
-  WebChat = {
-    type = "IRC";
-    max_kicks = "1";
-    max_msgs = "3";
-    max_whois = "30";
-  };
-  Rizon = { 
-    type = "IRC";
-    max_kicks = "1";
-    max_msgs = "3";
-    max_whois = "30";
-  };
-  LinkNet = {
     type = "IRC";
     max_kicks = "1";
     max_msgs = "3";
@@ -133,7 +56,9 @@ channels = (
   { name = "#affes_kanal"; chatnet = "Quakenet"; autojoin = "yes"; },
   { name = "#TSG"; chatnet = "Quakenet"; autojoin = "yes"; },
   { name = "#archlinux"; chatnet = "freenode"; autojoin = "yes"; },
+  { name = "#StarCitizen"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#emacs"; chatnet = "freenode"; autojoin = "yes"; },
+  { name = "#ansible"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#allmant"; chatnet = "slack"; autojoin = "yes"; },
   { name = "#random"; chatnet = "slack"; autojoin = "yes"; }
 );
@@ -325,15 +250,26 @@ settings = {
     autocreate_query_level = "DCCMSGS";
     use_msgs_window = "yes";
     show_nickmode_empty = "yes";
-    activity_hide_level = "";
+    activity_hide_level = "parts joins quits nicks modes";
     window_default_level = "MSGS PUBLICS NOTICES CTCPS ACTIONS JOINS PARTS QUITS KICKS MODES TOPICS NICKS CLIENTCRAP";
   };
   "perl/core/scripts" = {
     awl_shared_sbar = "OFF";
     awl_block = "-15";
     awl_viewer = "no";
+    nicklist_height = "74";
+    nicklist_width = "17";
   };
 };
+hilights = ( { text = "still0r"; nick = "yes"; word = "yes"; } );
+ignores = (
+  { level = "JOINS PARTS QUITS"; channels = ( "#archlinux" ); },
+  { level = "JOINS PARTS QUITS"; channels = ( "#erlang" ); },
+  { level = "JOINS PARTS QUITS"; channels = ( "#emacs" ); },
+  { level = "JOINS PARTS QUITS"; channels = ( "#StarCitizen" ); },
+  { level = "JOINS PARTS QUITS"; channels = ( "#ansible" ); },
+  { level = "MODES"; servertag = "slack"; }
+);
 windows = {
   1 = { immortal = "yes"; name = "(status)"; level = "ALL"; };
   2 = {
@@ -361,8 +297,8 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#polen99";
-        tag = "EFNet";
+        name = "#archlinux";
+        tag = "freenode";
       }
     );
   };
@@ -371,18 +307,84 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#archlinux";
+        name = "#StarCitizen";
         tag = "freenode";
       }
     );
   };
-
+  6 = {
+    level = "MSGS PUBLICS NOTICES CTCPS ACTIONS JOINS PARTS QUITS KICKS MODES TOPICS NICKS CLIENTCRAP";
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#emacs";
+        tag = "freenode";
+      }
+    );
+  };
+  7 = {
+    level = "MSGS PUBLICS NOTICES CTCPS ACTIONS JOINS PARTS QUITS KICKS MODES TOPICS NICKS CLIENTCRAP";
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#ansible";
+        tag = "freenode";
+      }
+    );
+  };
+  8 = {
+    level = "MSGS PUBLICS NOTICES CTCPS ACTIONS JOINS PARTS QUITS KICKS MODES TOPICS NICKS CLIENTCRAP";
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#allmant";
+        tag = "slack";
+      }
+    );
+  };
+  9 = {
+    level = "MSGS PUBLICS NOTICES CTCPS ACTIONS JOINS PARTS QUITS KICKS MODES TOPICS NICKS CLIENTCRAP";
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#random";
+        tag = "slack";
+      }
+    );
+  };
+  10 = {
+    level = "MSGS PUBLICS NOTICES CTCPS ACTIONS JOINS PARTS QUITS KICKS MODES TOPICS NICKS CLIENTCRAP";
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#gemini";
+        tag = "slack";
+      }
+    );
+  };
+  11 = {
+    level = "MSGS PUBLICS NOTICES CTCPS ACTIONS JOINS PARTS QUITS KICKS MODES TOPICS NICKS CLIENTCRAP";
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#flipperspel";
+        tag = "slack";
+      }
+    );
+  };
+  12 = {
+    name = "hilight";
+    level = "MSGS PUBLICS NOTICES CTCPS ACTIONS JOINS PARTS QUITS KICKS MODES TOPICS NICKS CLIENTCRAP";
+    sticky = "yes";
+  };
 };
-mainwindows = { 3 = { first_line = "1"; lines = "22"; }; };
-hilights = ( { text = "still0r"; nick = "yes"; word = "yes"; } );
-ignores = (
-  { level = "JOINS PARTS QUITS"; channels = ( "#archlinux" ); },
-  { level = "JOINS PARTS QUITS"; channels = ( "#erlang" ); },
-  { level = "JOINS PARTS QUITS"; channels = ( "#emacs" ); },
-  { level = "MODES"; servertag = "slack"; }
-);
+mainwindows = {
+  4 = { first_line = "8"; lines = "62"; };
+  12 = { first_line = "1"; lines = "7"; };
+};

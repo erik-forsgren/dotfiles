@@ -1,11 +1,18 @@
 ;;; package --- Initiliaze local stuff
 
+;;; Code:
 ;;; Load theme first!
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
-(load-theme 'monokai t)
+(when (>= emacs-major-version 24)
+  (load-theme 'monokai t))
 
-;;; Load emacs-eclim on startup
-(require 'init-eclim)
+;;; Don't use colored backgrounds in tty
+(defun on-frame-open (&optional frame)
+  "If the FRAME created in terminal don't load background color."
+  (unless (display-graphic-p frame)
+    (set-face-background 'default "unspecified-bg" frame)))
+
+(add-hook 'after-make-frame-functions 'on-frame-open)
 
 ;;; Load multiple-cursors
 (require 'multiple-cursors)
@@ -87,11 +94,6 @@
  '(rainbow-delimiters-depth-5-face ((t (:foreground "purple"))))
  '(rainbow-delimiters-depth-6-face ((t (:foreground "medium blue"))))
  '(rainbow-delimiters-depth-7-face ((t (:foreground "magenta")))))
-
-;;; 64bit assembler mode
-(load "~/.emacs.d/elpa/nasm-mode.el")
-(require 'nasm-mode)
-(add-to-list 'auto-mode-alist '("\\.\\(asm\\|s\\)$" . nasm-mode))
 
 ;;; ace-jump-mode
 (require 'init-ace-jump)

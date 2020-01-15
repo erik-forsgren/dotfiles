@@ -1,7 +1,7 @@
 (require 'mu4e)
 (setq mu4e-debug t)
 (setq mu4e-mu-binary "/usr/bin/mu")
-(setq mu4e-maildir "~/maildir") ;; top-level Maildir
+(setq mu4e-maildir "~/Maildir") ;; top-level Maildir
 (setq mu4e-sent-folder "/Utkorg") ;; where do i keep sent mail?
 
 (setq
@@ -16,9 +16,6 @@
 ;; Shortcuts
 (setq mu4e-maildir-shortcuts
       '(("/INBOX" . ?i)
-        ("/INBOX.old" . ?o)
-        ("/INBOX.INERA-jira" . ?j)
-        ("/INBOX.INERA-jenkins" . ?k)
         ))
 
 ;; don't save message to Sent Messages, Gmail/IMAP takes care of this
@@ -43,11 +40,17 @@
 (setq smtpmail-smtp-server "smtp.office365.com")
 
 
-(setq mu4e-confirm-quit nil
-      mu4e-headers-date-format "%Y-%M-%d %HH:%MM" ; date format
-      )
+(setq mu4e-confirm-quit nil)
 
-(setq mu4e-html2text-command "w3m -I utf8 -O utf8 -T text/html")
+(setq  mu4e-headers-date-format "%Y-%m-%d %H:%M") ; date format
+
+(setq mu4e-headers-fields
+      '( (:date          .  20)	;; alternatively, use :human-date
+         (:flags         .   6)
+         (:from          .  22)
+         (:subject       .  nil))) ;; alternatively, use :thread-subject
+
+(setq mu4e-html2text-command "w3m -T text/html")
 
 ;; Borrowed from http://ionrock.org/emacs-email-and-mu.html
 ;; Choose account label to feed msmtp -a option based on From header
@@ -68,11 +71,6 @@
 (setq message-sendmail-envelope-from 'header)
 
 (add-hook 'message-send-mail-hook 'choose-msmtp-account)
-
-(add-to-list 'mu4e-bookmarks
-             '("maildir:/Gitorious/inbox OR maildir:/Shortcut/inbox OR maildir:/Gmail/inbox flag:unread" "Today's news" ?z))
-(add-to-list 'mu4e-bookmarks
-             '("maildir:/Gmail/gitorious-ml flag:unread" "Unread on the mailing list" ?m))
 
 (add-hook 'mu4e-compose-pre-hook
           (defun my-set-from-address ()
