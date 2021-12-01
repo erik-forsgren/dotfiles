@@ -102,6 +102,15 @@
 (require 'iy-go-to-char)
 (define-key global-map (kbd "M-ö") 'iy-go-to-char)
 
+;;; Jedi python mode
+(require 'jedi)
+(add-hook 'python-mode-hook 'jedi:setup)
+(setq jedi:complete-on-dot t)
+
+(eval-after-load "python"
+  '(define-key python-mode-map "\C-cx" 'jedi-direx:pop-to-buffer))
+(add-hook 'jedi-mode-hook 'jedi-direx:setup)
+
 (provide 'init-local)
 ;;; init-local.el ends here
 

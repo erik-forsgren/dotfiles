@@ -5,7 +5,7 @@
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
-(package-initialize)
+;(package-initialize)
 
 (let ((minver 23))
   (unless (>= emacs-major-version minver)
@@ -13,6 +13,8 @@
 
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 (require 'init-benchmarking) ;; Measure startup time
+
+(setq byte-compile-warnings '(cl-functions))
 
 (defconst *spell-check-support-enabled* nil) ;; Enable with t if you prefer
 (defconst *is-a-mac* (eq system-type 'darwin))
@@ -62,7 +64,7 @@
 (require 'init-fonts)
 (require 'init-mmm)
 
-(require 'init-editing-utils)
+;(require 'init-editing-utils)
 
 (require 'init-vc)
 (require 'init-darcs)
@@ -88,7 +90,7 @@
 ;;(require 'init-rails)
 (require 'init-sql)
 
-(require 'init-paredit)
+;(require 'init-paredit)
 (require 'init-lisp)
 (require 'init-slime)
 (require 'init-clojure)

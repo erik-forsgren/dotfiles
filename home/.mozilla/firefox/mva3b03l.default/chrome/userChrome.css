@@ -113,36 +113,58 @@ tab {
    background: #0b0712 !important;
    top: 30px !important;
    box-shadow: none !important;
-   height: 30px !important;
+   height: 37px !important;
    position: relative !important;
    width: 100% !important;
-
+   padding-bottom: 5px !important;
 }
 
-/* actual url bar */
-
-#urlbar {
-   background: none !important;
-   border: none !important;
-   color: #d6d2e2 !important;
-   font-family: "DejaVu Sans Mono" !important;
-   font-size: 9pt !important;
-   height: 25px !important;
-   margin-left: 10px !important;
-   margin-top: 0px !important;
-   padding: 2 !important;
-   width: 120em !important;
-
+/* Get rid of blue border around urlbar */
+#urlbar:not(.megabar):-moz-lwtheme, #urlbar.megabar:-moz-lwtheme > #urlbar-background,
+#navigator-toolbox #searchbar:not(:focus-within):-moz-lwtheme {
+   border: 1px solid #000 !important;
 }
 
-#content-deck {
-   margin-bottom: 5px !important;
-
+#urlbar[breakout][breakout-extend] {
+   top: calc((var(--urlbar-toolbar-height) - var(--urlbar-height)) / 2) !important;
+   left: 0 !important;
+   width: 100% !important;
 }
 
-/* URL bar drop down */
+#urlbar[breakout][breakout-extend] > #urlbar-input-container {
+   height: var(--urlbar-height) !important;
+   padding-block: 0 !important;
+   padding-inline: 0 !important;
+}
 
-#PopupAutoCompleteRichResult {
-   margin-top: 10px !important;
+#urlbar[breakout][breakout-extend] > #urlbar-background {
+   animation-name: none !important;
+   box-shadow: 0 1px 4px rgba(0, 0, 0, .05) !important;
+}
 
+/* Smaller search button paddings */
+.search-one-offs {
+    padding-top: 6px !important;
+    padding-bottom: 7px !important;
+}
+
+/* Disable Megabar Animation */
+#urlbar[breakout][breakout-extend][breakout-extend-animate] > #urlbar-background {
+    animation-name: none !important;
+    animation: none !important;
+}
+
+/* --- Move the type icons to the left of the favicon. --- */
+.urlbarView.megabar .urlbarView-favicon {
+    margin-left: 20px !important;
+}
+
+.urlbarView.megabar .urlbarView-type-icon {
+    position: relative !important;
+    left: -54px !important;
+    top: -4px !important;
+    margin-right: -24px !important;
+    height: 16px !important;
+    width: 16px !important;
+    filter: contrast(90%) brightness(110%);
 }
